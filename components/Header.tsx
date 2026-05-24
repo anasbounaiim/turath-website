@@ -20,7 +20,7 @@ export function Header() {
       </div>
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
         <a href="#" className="flex items-center" aria-label="Turath home">
-          <Image src="/imgs/turath-logo.svg" alt="Turath" width={94} height={54} priority className="h-9 w-auto" />
+          <Image src="/imgs/Turath-logo.svg" alt="Turath" width={94} height={54} priority className="h-9 w-auto" />
         </a>
 
         <nav className="hidden items-center gap-8 text-xs font-bold uppercase text-ink/75 md:flex">

@@ -1,0 +1,137 @@
+@import "tailwindcss";
+
+:root {
+  --forest-green: #3e5c50;
+  --deep-green: #173f32;
+  --leaf-green: #2f6a57;
+  --sage-green: #dfeee4;
+  --mist-green: #eef7f0;
+  --cream: #ffffff;
+  --ink: #111111;
+}
+
+@theme inline {
+  --color-forest-green: var(--forest-green);
+  --color-deep-green: var(--deep-green);
+  --color-leaf-green: var(--leaf-green);
+  --color-sage-green: var(--sage-green);
+  --color-mist-green: var(--mist-green);
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --font-sans: var(--font-cairo), sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+}
+
+[dir="rtl"],
+.font-arabic {
+  font-family: var(--font-cairo), sans-serif;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@keyframes fade-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes soft-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-in {
+  animation: fade-slide-up 700ms ease-out both;
+}
+
+.animate-delay-1 {
+  animation-delay: 120ms;
+}
+
+.animate-delay-2 {
+  animation-delay: 240ms;
+}
+
+.soft-float {
+  animation: soft-float 5s ease-in-out infinite;
+}
+
+.interactive-lift {
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    background-color 220ms ease,
+    color 220ms ease;
+}
+
+.interactive-lift:hover {
+  transform: translateY(-3px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 1ms !important;
+  }
+}
+
+.botanical-pattern {
+  background-color: var(--forest-green);
+  background-image:
+    radial-gradient(circle at 18% 18%, rgba(230, 211, 177, 0.18) 0 2px, transparent 3px),
+    radial-gradient(circle at 78% 26%, rgba(163, 177, 138, 0.2) 0 2px, transparent 3px),
+    linear-gradient(135deg, rgba(216, 195, 165, 0.12) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(216, 195, 165, 0.08) 25%, transparent 25%);
+  background-size: 56px 56px, 72px 72px, 42px 42px, 46px 46px;
+}
+
+.path-pattern-green {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: var(--forest-green);
+}
+
+.path-pattern-green::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url("/imgs/path%20svg%201.png");
+  background-position: center;
+  background-size: cover;
+  opacity: 0.44;
+  mix-blend-mode: screen;
+}

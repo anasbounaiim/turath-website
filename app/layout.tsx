@@ -13,6 +13,10 @@ export const metadata: Metadata = {
   title: "Turath | Huiles marocaines pressées à froid",
   description:
     "Huiles végétales marocaines pressées à froid, pures et inspirées du patrimoine naturel.",
+  icons: {
+    icon: "/imgs/favicon.png",
+    shortcut: "/imgs/favicon.png",
+  },
 };
 
 export default function RootLayout({

@@ -78,7 +78,7 @@ export function TestimonialsCarousel({
                   />
                 </div>
                 <div>
-                  <p className="text-lg font-bold">{testimonial.name}</p>
+                  <p className="text-lg font-bold text-forest-green">{testimonial.name}</p>
                   <p className="text-sm text-ink/65">
                     {testimonial.city}
                   </p>

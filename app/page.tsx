@@ -143,13 +143,13 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="animate-in mb-7 grid gap-4 md:grid-cols-[1fr_0.8fr] md:items-end">
             <div>
-              <p className="text-xs font-bold uppercase text-ink">
+              <p className="text-xs font-bold uppercase text-forest-green">
                 La gamme / المجموعة
               </p>
-              <h2 className="mt-2 text-4xl font-bold leading-tight text-ink md:text-[2.65rem]">
+              <h2 className="mt-2 text-4xl font-bold leading-tight text-forest-green md:text-[2.65rem]">
                 Huiles botaniques essentielles
               </h2>
-              <p className="mt-2 text-2xl font-bold text-ink" dir="rtl">
+              <p className="mt-2 text-2xl font-bold text-forest-green" dir="rtl">
                 زيوت طبيعية أساسية
               </p>
             </div>
@@ -173,13 +173,13 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="animate-in mb-7 grid gap-4 md:grid-cols-[1fr_0.8fr] md:items-end">
             <div>
-              <p className="text-xs font-bold uppercase text-ink">
+              <p className="text-xs font-bold uppercase text-forest-green">
                 Les graines / البذور
               </p>
-              <h2 className="mt-2 text-4xl font-bold leading-tight text-ink sm:text-5xl">
+              <h2 className="mt-2 text-4xl font-bold leading-tight text-forest-green sm:text-5xl">
                 La matière première au centre.
               </h2>
-              <p className="mt-2 text-2xl font-bold text-ink" dir="rtl">
+              <p className="mt-2 text-2xl font-bold text-forest-green" dir="rtl">
                 البذور هي بداية كل قطرة.
               </p>
             </div>
@@ -202,10 +202,10 @@ export default function Home() {
                   />
                 </div>
                 <div className="space-y-1 p-4">
-                  <h3 className="text-lg font-bold text-ink">
+                  <h3 className="text-lg font-bold text-forest-green">
                     {seed.frenchName}
                   </h3>
-                  <p className="text-right text-lg font-bold text-ink" dir="rtl">
+                  <p className="text-right text-lg font-bold text-forest-green" dir="rtl">
                     {seed.arabicName}
                   </p>
                 </div>
@@ -268,13 +268,13 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="animate-in mb-7 grid gap-4 md:grid-cols-[1fr_0.8fr] md:items-end">
             <div>
-              <p className="text-xs font-bold uppercase text-ink">
+              <p className="text-xs font-bold uppercase text-forest-green">
                 Témoignages / آراء الزبناء
               </p>
-              <h2 className="mt-2 text-4xl font-bold leading-tight text-ink sm:text-5xl">
+              <h2 className="mt-2 text-4xl font-bold leading-tight text-forest-green sm:text-5xl">
                 Ce que disent nos clientes.
               </h2>
-              <p className="mt-2 text-2xl font-bold text-ink" dir="rtl">
+              <p className="mt-2 text-2xl font-bold text-forest-green" dir="rtl">
                 تجارب بسيطة وطبيعية.
               </p>
             </div>
@@ -294,13 +294,13 @@ export default function Home() {
         <div className="mx-auto max-w-7xl">
           <div className="animate-in grid gap-8 md:grid-cols-[1fr_1fr] md:items-start">
             <div className="space-y-4">
-              <p className="text-xs font-bold uppercase text-ink">
+              <p className="text-xs font-bold uppercase text-forest-green">
                 Commande directe / طلب مباشر
               </p>
-              <h2 className="max-w-xl text-4xl font-bold leading-tight text-ink sm:text-5xl">
+              <h2 className="max-w-xl text-4xl font-bold leading-tight text-forest-green sm:text-5xl">
                 Choisissez une huile, confirmez sur WhatsApp.
               </h2>
-              <p className="max-w-xl text-3xl font-bold leading-tight text-ink" dir="rtl">
+              <p className="max-w-xl text-3xl font-bold leading-tight text-forest-green" dir="rtl">
                 اختاروا الزيت، ونؤكد الطلب عبر واتساب.
               </p>
             </div>

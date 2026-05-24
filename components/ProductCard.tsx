@@ -27,10 +27,10 @@ export function ProductCard({ product }: { product: Product }) {
       </div>
       <div className="space-y-4 p-4 sm:p-5">
         <div>
-          <p className="text-right text-sm font-bold text-ink" dir="rtl">
+          <p className="text-right text-sm font-bold text-forest-green" dir="rtl">
             {product.arabicName}
           </p>
-          <h3 className="mt-1 text-lg font-bold text-ink sm:text-xl">
+          <h3 className="mt-1 text-lg font-bold text-forest-green sm:text-xl">
             {product.name}
           </h3>
           <p className="text-sm text-ink/65">

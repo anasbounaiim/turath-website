@@ -61,12 +61,12 @@ export function OfferModal() {
         </div>
 
         <div className="flex flex-col justify-center px-6 py-12 text-center sm:px-10 md:px-12">
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-ink/60">
+          <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-forest-green/70">
             Offre de bienvenue
           </p>
           <h2
             id="offer-modal-title"
-            className="text-4xl font-bold leading-tight text-ink sm:text-5xl"
+            className="text-4xl font-bold leading-tight text-forest-green sm:text-5xl"
           >
             10% sur votre premiere commande
           </h2>

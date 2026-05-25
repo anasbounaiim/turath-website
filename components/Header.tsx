@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { Menu, X } from "lucide-react";
 import { FaInstagram, FaWhatsapp } from "react-icons/fa";
-import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { createWhatsAppUrl } from "@/lib/whatsapp";
 
 const instagramUrl = "https://www.instagram.com/turath.nature/";
@@ -56,7 +56,7 @@ export function Header() {
             onClick={() => setIsMenuOpen((current) => !current)}
             className="grid h-10 w-10 place-items-center rounded-full border border-forest-green/15 text-ink md:hidden"
           >
-            {isMenuOpen ? <HiX size={22} /> : <HiMenuAlt3 size={22} />}
+            {isMenuOpen ? <X size={22} /> : <Menu size={22} />}
           </button>
         </div>
       </div>

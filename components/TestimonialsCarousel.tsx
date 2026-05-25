@@ -2,8 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Avatar from "boring-avatars";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { FaQuoteLeft } from "react-icons/fa";
-import { HiChevronLeft, HiChevronRight } from "react-icons/hi";
 
 export type Testimonial = {
   name: string;
@@ -127,7 +127,7 @@ export function TestimonialsCarousel({
             onClick={goToPrevious}
             className="grid h-11 w-11 place-items-center rounded-full border border-forest-green/15 text-ink transition hover:bg-mist-green"
           >
-            <HiChevronLeft size={22} />
+            <ChevronLeft size={22} />
           </button>
           <button
             type="button"
@@ -135,7 +135,7 @@ export function TestimonialsCarousel({
             onClick={goToNext}
             className="grid h-11 w-11 place-items-center rounded-full bg-forest-green text-cream transition hover:bg-deep-green"
           >
-            <HiChevronRight size={22} />
+            <ChevronRight size={22} />
           </button>
         </div>
       </div>

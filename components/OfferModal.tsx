@@ -2,7 +2,7 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import Image from "next/image";
-import { HiX } from "react-icons/hi";
+import { X } from "lucide-react";
 
 export function OfferModal() {
   const [isOpen, setIsOpen] = useState(false);
@@ -47,7 +47,7 @@ export function OfferModal() {
           onClick={closeModal}
           className="interactive-lift absolute right-4 top-4 z-10 grid h-10 w-10 place-items-center rounded-full text-ink hover:bg-mist-green"
         >
-          <HiX size={26} />
+          <X size={26} />
         </button>
 
         <div className="relative min-h-[260px] bg-sage-green md:min-h-[490px]">

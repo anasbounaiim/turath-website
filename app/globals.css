@@ -69,7 +69,8 @@ a {
 }
 
 .animate-in {
-  animation: fade-slide-up 700ms ease-out both;
+  opacity: 1;
+  transform: translateZ(0);
 }
 
 .animate-delay-1 {

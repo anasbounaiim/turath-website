@@ -11,7 +11,6 @@ import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { Header } from "@/components/Header";
 import { OfferModal } from "@/components/OfferModal";
 import { ProductCard } from "@/components/ProductCard";
-import { ScrollAnimations } from "@/components/ScrollAnimations";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { products } from "@/data/products";
@@ -121,7 +120,6 @@ const testimonials = [
 export default function Home() {
   return (
     <main className="bg-cream">
-      <ScrollAnimations />
       <OfferModal />
       <Header />
 
@@ -348,8 +346,8 @@ export default function Home() {
             </svg>
 
             <div className="relative z-10 mx-auto mb-6 flex w-full max-w-[230px] items-end justify-center pt-2 md:absolute md:bottom-0 md:left-1/2 md:mb-0 md:h-[560px] md:max-w-none md:-translate-x-1/2 md:py-0">
-              <div className="gsap-bottle-halo absolute bottom-0 h-[78%] w-[86%] rounded-t-full border border-forest-green/10 bg-white/65 shadow-[0_24px_60px_rgba(23,63,50,0.10)] md:w-[78%] md:shadow-[0_30px_80px_rgba(23,63,50,0.10)]" />
-              <div className="gsap-bottle-shadow absolute bottom-5 h-8 w-36 rounded-full bg-forest-green/12 blur-xl md:bottom-7 md:h-10 md:w-48" />
+              <div className="absolute bottom-0 h-[78%] w-[86%] rounded-t-full border border-forest-green/10 bg-white/65 shadow-[0_24px_60px_rgba(23,63,50,0.10)] md:w-[78%] md:shadow-[0_30px_80px_rgba(23,63,50,0.10)]" />
+              <div className="absolute bottom-5 h-8 w-36 rounded-full bg-forest-green/12 blur-xl md:bottom-7 md:h-10 md:w-48" />
               <p className="pointer-events-none absolute top-9 hidden text-[5rem] font-bold leading-none text-forest-green/[0.035] md:block">
                 TURATH
               </p>
@@ -359,7 +357,7 @@ export default function Home() {
                 width={380}
                 height={620}
                 sizes="(min-width: 768px) 24vw, 70vw"
-                className="gsap-bottle relative h-auto max-h-[300px] w-auto object-contain drop-shadow-[0_18px_26px_rgba(23,63,50,0.18)] md:max-h-[560px] md:drop-shadow-[0_24px_34px_rgba(23,63,50,0.22)]"
+                className="relative h-auto max-h-[300px] w-auto object-contain drop-shadow-[0_18px_26px_rgba(23,63,50,0.18)] md:max-h-[560px] md:drop-shadow-[0_24px_34px_rgba(23,63,50,0.22)]"
               />
             </div>
 

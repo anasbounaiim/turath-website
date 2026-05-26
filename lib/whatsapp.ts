@@ -1,4 +1,4 @@
-const DEFAULT_WHATSAPP_NUMBER = "212600000000";
+const DEFAULT_WHATSAPP_NUMBER = "212708987943";
 
 export function createWhatsAppUrl(message: string) {
   const phone = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || DEFAULT_WHATSAPP_NUMBER;

@@ -14,7 +14,7 @@ npm run dev
 Create `.env.local` and set:
 
 ```bash
-NEXT_PUBLIC_WHATSAPP_NUMBER=212600000000
+NEXT_PUBLIC_WHATSAPP_NUMBER=212708987943
 ```
 
 Use the international format without `+`.

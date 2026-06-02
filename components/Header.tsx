@@ -2,14 +2,15 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Menu, X } from "lucide-react";
-import { FaInstagram, FaWhatsapp } from "react-icons/fa";
-import { createWhatsAppUrl } from "@/lib/whatsapp";
+import { Menu, ShoppingBag, X } from "lucide-react";
+import { FaInstagram } from "react-icons/fa";
+import { useCart } from "@/components/CartProvider";
 
 const instagramUrl = "https://www.instagram.com/turath.nature/";
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { itemCount, openCart } = useCart();
 
   const closeMenu = () => setIsMenuOpen(false);
 
@@ -27,6 +28,7 @@ export function Header() {
           <a href="#products">Produits</a>
           <a href="#story">Histoire</a>
           <a href="#order">Commander</a>
+          <a href="#contact">Contact</a>
         </nav>
 
         <div className="flex items-center gap-2">
@@ -39,15 +41,19 @@ export function Header() {
           >
             <FaInstagram size={18} />
           </a>
-          <a
-            href={createWhatsAppUrl("Hello Turath, I would like to place an order.")}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Order on WhatsApp"
-            className="grid h-10 w-10 place-items-center rounded-full bg-forest-green text-cream"
+          <button
+            type="button"
+            onClick={openCart}
+            aria-label="Open cart"
+            className="relative grid h-10 w-10 place-items-center rounded-full bg-forest-green text-cream"
           >
-            <FaWhatsapp size={18} />
-          </a>
+            <ShoppingBag size={18} />
+            {itemCount > 0 ? (
+              <span className="absolute -right-1 -top-1 grid h-5 min-w-5 place-items-center rounded-full bg-sage-green px-1 text-[11px] font-bold text-forest-green">
+                {itemCount}
+              </span>
+            ) : null}
+          </button>
           <button
             type="button"
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -75,6 +81,9 @@ export function Header() {
         </a>
         <a href="#order" onClick={closeMenu} className="rounded-[8px] px-3 py-3">
           Commander
+        </a>
+        <a href="#contact" onClick={closeMenu} className="rounded-[8px] px-3 py-3">
+          Contact
         </a>
       </nav>
     </header>

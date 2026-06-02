@@ -1,7 +1,9 @@
+"use client";
+
 import Image from "next/image";
-import { FaWhatsapp } from "react-icons/fa";
+import { ShoppingCart } from "lucide-react";
+import { useCart } from "@/components/CartProvider";
 import type { Product } from "@/data/products";
-import { createWhatsAppUrl } from "@/lib/whatsapp";
 
 const colorStyles: Record<Product["color"], string> = {
   forest: "bg-forest-green",
@@ -12,7 +14,7 @@ const colorStyles: Record<Product["color"], string> = {
 };
 
 export function ProductCard({ product }: { product: Product }) {
-  const message = `Bonjour Turath, je veux commander ${product.name} ${product.size}. Merci de confirmer la disponibilité et la livraison.\nمرحبا تراث، أريد طلب ${product.arabicName} ${product.size}.`;
+  const { addItem } = useCart();
 
   return (
     <article className="interactive-lift group min-w-[74vw] overflow-hidden rounded-[8px] border border-forest-green/10 bg-cream shadow-[0_18px_45px_rgba(23,63,50,0.08)] sm:min-w-0">
@@ -37,7 +39,7 @@ export function ProductCard({ product }: { product: Product }) {
             {product.name}
           </h3>
           <div className="flex items-center justify-between gap-3 border-t border-forest-green/10 pt-3 text-sm">
-            <span className="font-bold text-ink/70">Format</span>
+            <span className="font-bold text-ink/70">Prix</span>
             <span className="font-bold text-forest-green">{product.price}</span>
           </div>
         </div>
@@ -53,15 +55,14 @@ export function ProductCard({ product }: { product: Product }) {
           ))}
         </div>
 
-        <a
-          href={createWhatsAppUrl(message)}
-          target="_blank"
-          rel="noreferrer"
+        <button
+          type="button"
+          onClick={() => addItem(product)}
           className="interactive-lift inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-full bg-forest-green px-4 text-sm font-bold text-cream shadow-[0_12px_28px_rgba(23,63,50,0.2)]"
         >
-          <FaWhatsapp size={16} />
-          Commander / اطلب الآن
-        </a>
+          <ShoppingCart size={17} />
+          Ajouter au panier / {"\u0623\u0636\u0641 \u0644\u0644\u0633\u0644\u0629"}
+        </button>
       </div>
     </article>
   );

@@ -3,18 +3,25 @@ import {
   Flower2,
   HandHeart,
   Leaf,
+  Mail,
+  MessageCircle,
   ShieldCheck,
+  ShoppingBag,
   Sprout,
   Truck,
 } from "lucide-react";
-import { FaInstagram, FaWhatsapp } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { BottleAnimation } from "@/components/BottleAnimation";
+import { CartProvider } from "@/components/CartProvider";
 import { Header } from "@/components/Header";
 import { OfferModal } from "@/components/OfferModal";
-import { ProductCard } from "@/components/ProductCard";
+import { PolicyModal } from "@/components/PolicyModal";
+import { ProductShowcase } from "@/components/ProductShowcase";
+import { SeedGallery } from "@/components/SeedGallery";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { products } from "@/data/products";
 import { seedIngredients } from "@/data/seeds";
+import { createWhatsAppUrl } from "@/lib/whatsapp";
 
 const instagramUrl = "https://www.instagram.com/turath.nature/";
 
@@ -119,7 +126,9 @@ const testimonials = [
 
 export default function Home() {
   return (
+    <CartProvider>
     <main className="bg-cream">
+      <BottleAnimation />
       <OfferModal />
       <Header />
 
@@ -149,13 +158,12 @@ export default function Home() {
 
             <div className="space-y-6">
               <div className="grid gap-3 sm:max-w-md sm:grid-cols-2">
-              <WhatsAppButton
-                message="Bonjour Turath, je veux recevoir le catalogue des huiles disponibles.\nمرحبا تراث، أريد الاطلاع على المنتجات المتوفرة."
-                variant="light"
-                className="w-full"
-              >
-                Commander / اطلب الآن
-              </WhatsAppButton>
+                <a
+                  href="#products"
+                  className="interactive-lift inline-flex min-h-12 w-full items-center justify-center rounded-full bg-cream px-5 text-sm font-bold text-ink"
+                >
+                  Voir les huiles / اختر الزيت
+                </a>
                 <a
                   href={instagramUrl}
                   target="_blank"
@@ -269,13 +277,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="animate-in animate-delay-1 -mx-4 flex snap-x gap-3 overflow-x-auto px-4 pb-3 sm:mx-0 sm:grid sm:grid-cols-2 sm:overflow-visible sm:px-0 lg:mx-auto lg:max-w-5xl lg:grid-cols-3 lg:gap-4">
-            {products.map((product) => (
-              <div key={product.id} className="snap-start">
-                <ProductCard product={product} />
-              </div>
-            ))}
-          </div>
+          <ProductShowcase products={products} />
         </div>
       </section>
 
@@ -357,6 +359,7 @@ export default function Home() {
                 width={380}
                 height={620}
                 sizes="(min-width: 768px) 24vw, 70vw"
+                data-bottle-animation
                 className="relative h-auto max-h-[300px] w-auto object-contain drop-shadow-[0_18px_26px_rgba(23,63,50,0.18)] md:max-h-[560px] md:drop-shadow-[0_24px_34px_rgba(23,63,50,0.22)]"
               />
             </div>
@@ -431,29 +434,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="animate-in animate-delay-1 grid grid-cols-2 gap-3 md:grid-cols-4">
-            {seedIngredients.map((seed) => (
-              <article key={seed.name} className="overflow-hidden rounded-[8px] bg-cream">
-                <div className="relative aspect-square bg-forest-green">
-                  <Image
-                    src={seed.image}
-                    alt={`${seed.frenchName} - ${seed.name}`}
-                    fill
-                    sizes="(min-width: 768px) 25vw, 50vw"
-                    className="object-cover"
-                  />
-                </div>
-                <div className="space-y-1 p-4">
-                  <h3 className="text-lg font-bold text-forest-green">
-                    {seed.frenchName}
-                  </h3>
-                  <p className="text-right text-lg font-bold text-forest-green" dir="rtl">
-                    {seed.arabicName}
-                  </p>
-                </div>
-              </article>
-            ))}
-          </div>
+          <SeedGallery seeds={seedIngredients} />
         </div>
       </section>
 
@@ -563,13 +544,110 @@ export default function Home() {
                   <span className="font-bold text-ink">{text}</span>
                 </div>
               ))}
-              <WhatsAppButton
-                message="Bonjour Turath, je voudrais passer une commande. Merci de m'envoyer les produits disponibles.\nمرحبا تراث، أريد طلب منتج. المرجو إرسال المنتجات المتوفرة."
-                className="mt-3 w-full sm:w-fit"
+              <a
+                href="#products"
+                className="interactive-lift mt-3 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-forest-green px-5 text-sm font-bold text-cream sm:w-fit"
               >
-                Commencer / ابدأ الطلب
-              </WhatsAppButton>
+                Choisir les huiles / اختر الزيوت
+              </a>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-mist-green px-4 py-12 sm:px-6 md:py-20" id="contact">
+        <div className="mx-auto grid max-w-7xl gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-start">
+          <div className="animate-in space-y-4">
+            <p className="text-xs font-bold uppercase text-forest-green">
+              Contact / تواصل معنا
+            </p>
+            <h2 className="max-w-xl text-4xl font-bold leading-tight text-forest-green sm:text-5xl">
+              Une question avant votre commande ?
+            </h2>
+            <p className="max-w-xl text-2xl font-bold leading-tight text-forest-green" dir="rtl">
+              نحن هنا لمساعدتكم قبل تأكيد الطلب.
+            </p>
+            <p className="max-w-xl text-base leading-7 text-ink/68">
+              Contactez Turath pour confirmer la disponibilite, les prix, la
+              livraison ou une recommandation selon votre routine.
+            </p>
+          </div>
+
+          <div className="animate-in animate-delay-1 grid gap-3 sm:grid-cols-2">
+            <a
+              href="mailto:contact@turath.site"
+              className="interactive-lift flex min-h-36 flex-col justify-between rounded-[8px] bg-white p-5 text-ink shadow-[0_16px_36px_rgba(23,63,50,0.07)]"
+            >
+              <span className="grid h-11 w-11 place-items-center rounded-full bg-forest-green text-cream">
+                <Mail size={21} />
+              </span>
+              <span>
+                <span className="block text-sm font-bold uppercase text-forest-green/65">
+                  Email
+                </span>
+                <span className="mt-1 block text-lg font-bold text-forest-green">
+                  contact@turath.site
+                </span>
+              </span>
+            </a>
+
+            <a
+              href="#products"
+              className="interactive-lift flex min-h-36 flex-col justify-between rounded-[8px] bg-white p-5 text-ink shadow-[0_16px_36px_rgba(23,63,50,0.07)]"
+            >
+              <span className="grid h-11 w-11 place-items-center rounded-full bg-forest-green text-cream">
+                <ShoppingBag size={21} />
+              </span>
+              <span>
+                <span className="block text-sm font-bold uppercase text-forest-green/65">
+                  Commande
+                </span>
+                <span className="mt-1 block text-lg font-bold text-forest-green">
+                  Choisir les huiles
+                </span>
+              </span>
+            </a>
+
+            <a
+              href={createWhatsAppUrl(
+                "Bonjour Turath, j'ai une question avant de passer commande.",
+              )}
+              target="_blank"
+              rel="noreferrer"
+              className="interactive-lift flex min-h-36 flex-col justify-between rounded-[8px] bg-white p-5 text-ink shadow-[0_16px_36px_rgba(23,63,50,0.07)]"
+            >
+              <span className="grid h-11 w-11 place-items-center rounded-full bg-forest-green text-cream">
+                <MessageCircle size={21} />
+              </span>
+              <span>
+                <span className="block text-sm font-bold uppercase text-forest-green/65">
+                  WhatsApp
+                </span>
+                <span className="mt-1 block text-lg font-bold text-forest-green">
+                  Message direct
+                </span>
+              </span>
+            </a>
+
+            <a
+              href={instagramUrl}
+              target="_blank"
+              rel="noreferrer"
+              className="interactive-lift flex min-h-36 flex-col justify-between rounded-[8px] bg-white p-5 text-ink shadow-[0_16px_36px_rgba(23,63,50,0.07)]"
+            >
+              <span className="grid h-11 w-11 place-items-center rounded-full bg-forest-green text-cream">
+                <FaInstagram size={20} />
+              </span>
+              <span>
+                <span className="block text-sm font-bold uppercase text-forest-green/65">
+                  Instagram
+                </span>
+                <span className="mt-1 block text-lg font-bold text-forest-green">
+                  @turath.nature
+                </span>
+              </span>
+            </a>
+
           </div>
         </div>
       </section>
@@ -584,6 +662,9 @@ export default function Home() {
             <a href="#products">Produits</a>
             <a href="#story">Histoire</a>
             <a href="#order">WhatsApp</a>
+            <a href="#contact">Contact</a>
+            <a href="mailto:contact@turath.site">contact@turath.site</a>
+            <PolicyModal />
             <a href={instagramUrl} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2">
               <FaInstagram size={16} />
               Instagram
@@ -596,5 +677,6 @@ export default function Home() {
         </div>
       </footer>
     </main>
+    </CartProvider>
   );
 }

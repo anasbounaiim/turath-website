@@ -90,13 +90,19 @@ export function SeedGallery({ seeds }: SeedGalleryProps) {
               <p className="mt-5 text-base leading-7 text-ink/72">
                 {selectedSeed.description}
               </p>
+              <p className="mt-3 text-base font-semibold leading-7 text-ink/72" dir="rtl">
+                {selectedSeed.arabicDescription}
+              </p>
               <div className="mt-7 grid gap-3">
-                {selectedSeed.details.map((detail) => (
+                {selectedSeed.details.map((detail, index) => (
                   <div
                     key={detail}
-                    className="rounded-[8px] border border-forest-green/10 bg-mist-green px-4 py-3 text-sm font-semibold leading-6 text-ink/78"
+                    className="grid gap-2 rounded-[8px] border border-forest-green/10 bg-mist-green px-4 py-3 text-sm font-semibold leading-6 text-ink/78"
                   >
-                    {detail}
+                    <p>{detail}</p>
+                    <p className="text-right text-forest-green" dir="rtl">
+                      {selectedSeed.arabicDetails[index]}
+                    </p>
                   </div>
                 ))}
               </div>

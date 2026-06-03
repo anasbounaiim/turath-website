@@ -247,7 +247,7 @@ export default function Home() {
           </div>
 
           <a
-            href="https://turath-form.vercel.app"
+            href="https://form.turath.site"
             target="_blank"
             rel="noreferrer"
             className="interactive-lift mx-auto mt-9 inline-flex min-h-12 w-full items-center justify-center rounded-full bg-cream px-5 text-sm font-bold text-ink sm:w-fit"

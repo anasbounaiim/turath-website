@@ -10,7 +10,7 @@ import {
   Sprout,
   Truck,
 } from "lucide-react";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaWhatsapp } from "react-icons/fa";
 import { BottleAnimation } from "@/components/BottleAnimation";
 import { CartProvider } from "@/components/CartProvider";
 import { Header } from "@/components/Header";
@@ -676,6 +676,17 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      <a
+        href={createWhatsAppUrl(
+          "Bonjour Turath, je souhaite passer une commande.",
+        )}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Commander sur WhatsApp"
+        className="interactive-lift soft-float fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_16px_34px_rgba(0,0,0,0.24)] sm:bottom-7 sm:right-7 sm:h-16 sm:w-16"
+      >
+        <FaWhatsapp aria-hidden="true" size={32} />
+      </a>
     </main>
     </CartProvider>
   );

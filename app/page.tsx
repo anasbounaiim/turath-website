@@ -202,7 +202,7 @@ export default function Home() {
               fill
               priority
               sizes="(min-width: 768px) 50vw, 100vw"
-              className="object-cover object-[50%_56%]"
+              className="scale-[1.01] object-cover object-[50%_56%]"
             />
           </div>
         </div>
